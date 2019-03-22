@@ -37,6 +37,12 @@ namespace StandardMakros.Components
         public void Initialize()
         {
             Logger.Info("Makro wird gestartet.");
+
+            AppDomain.CurrentDomain.UnhandledException += UnhandledExceptions;
+        }
+
+        private void UnhandledExceptions(object sender, UnhandledExceptionEventArgs e) {
+            Logger.Error("", (Exception)e.ExceptionObject);
         }
     }
 }
