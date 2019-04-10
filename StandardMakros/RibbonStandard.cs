@@ -21,6 +21,8 @@ namespace StandardMakros
         {
             bool withPath = (sender != pbWithoutPath);
             makro.InsertFilename(withPath);
+
+            new MarkdownViewer.MarkdownViewerPanel().Show();
         }
 
         private void PbSeiteDrucken_Click(object sender, RibbonControlEventArgs e)

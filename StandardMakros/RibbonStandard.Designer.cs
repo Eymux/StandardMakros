@@ -36,10 +36,10 @@
         {
             this.TabLHM = this.Factory.CreateRibbonTab();
             this.grpStandard = this.Factory.CreateRibbonGroup();
+            this.separator1 = this.Factory.CreateRibbonSeparator();
             this.pbSeiteDrucken = this.Factory.CreateRibbonButton();
             this.pbDateinameEinfuegen = this.Factory.CreateRibbonSplitButton();
             this.pbWithoutPath = this.Factory.CreateRibbonButton();
-            this.separator1 = this.Factory.CreateRibbonSeparator();
             this.TabLHM.SuspendLayout();
             this.grpStandard.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,10 @@
             this.grpStandard.Label = "Standard";
             this.grpStandard.Name = "grpStandard";
             // 
+            // separator1
+            // 
+            this.separator1.Name = "separator1";
+            // 
             // pbSeiteDrucken
             // 
             this.pbSeiteDrucken.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -75,6 +79,8 @@
             this.pbDateinameEinfuegen.Label = "Dateiname einfügen";
             this.pbDateinameEinfuegen.Name = "pbDateinameEinfuegen";
             this.pbDateinameEinfuegen.OfficeImageId = "FieldInsert";
+            this.pbDateinameEinfuegen.ScreenTip = "Dateiname einfügen";
+            this.pbDateinameEinfuegen.SuperTip = "Fügt den Dateinamen des aktuellen Dokuments an die Eingabeposition ein.\r\n\r\nDas Dokument muss zuerst gespeichert werden.";
             this.pbDateinameEinfuegen.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.PbDateinameEinfuegen_Click);
             // 
             // pbWithoutPath
@@ -83,10 +89,6 @@
             this.pbWithoutPath.Name = "pbWithoutPath";
             this.pbWithoutPath.ShowImage = true;
             this.pbWithoutPath.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.PbDateinameEinfuegen_Click);
-            // 
-            // separator1
-            // 
-            this.separator1.Name = "separator1";
             // 
             // RibbonStandard
             // 
