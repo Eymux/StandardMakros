@@ -23,6 +23,17 @@ namespace MarkdownViewer
         public MarkdownViewerPanel()
         {
             InitializeComponent();
+
+            Width = 500;
+            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+
+            Title = "Hilfe";
+        }
+
+        public void Show(string text)
+        {
+            viewer.Text = text;
+            base.Show();
         }
     }
 }

@@ -219,6 +219,8 @@
     <EmbeddedResource Include="RibbonStandard.resx">
       <DependentUpon>RibbonStandard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="help\SeiteDrucken.md" />
+    <EmbeddedResource Include="help\DateinameEinfuegen.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
