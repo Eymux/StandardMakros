@@ -22,13 +22,33 @@ Der `ComponentInstaller` ist dafür verantwortlich, die Klassen zu finden, die i
 Die Klasse `Makro` ist der Root des Objektbaums für die Anwendung.
 Alle Aufrufe aus dem Ribbon müssen über die Klasse `Makro` laufen. Die Klasse darf ansonsten keine Businesslogik enthalten.
 
-Businesslogik wird über Services zur Verfügung gestellt. Wie die Services aufgbaut sind ergibt sich aus den Anforderung. Ganz allgemein sollte jeder Service in sich abgeschlossen sein und eine fachliche Einheit bilden (z.B. DatabaseService).
+Businesslogik wird über Services zur Verfügung gestellt. Wie die Services aufgbaut sind ergibt sich aus den Anforderung. Ganz allgemein sollte jeder Service in sich abgeschlossen sein und eine fachliche Einheit bilden (z.B. DatabaseService).8
+
+## MarkdownViewer
+
+Der `MarkdownViewer` dient zur Anzeige von Hilfedateien in MS-Office. Die Erstellung von Markdowndateien ist wesentlich einfacher als die Erstellung der offiziellen Hilfedateien (.hlp, .chm) für Windows. Der `MarkdownViewer` zeigt eine Markdowndatei in einem eigenständigen Fenster an.
+
+```csharp
+new MarkdownViewer.MarkdownViewerPanel().Show(<text>);
+```
+
+Die Hilfedateien werden als Resource in das Add-On eingebettet ([Anleitung](https://docs.microsoft.com/de-de/visualstudio/ide/build-actions?view=vs-2019)).
+Die Datei kann zur Laufzeit aus der Assembly ausgelesen und an den MarkdownViewer übergeben werden.
+
+```csharp
+using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+using (StreamReader reader = new StreamReader(stream))
+{
+    string result = reader.ReadToEnd();
+    new MarkdownViewer.MarkdownViewerPanel().Show(result);
+}
+```
 
 ## Logging
 
 Für das Logging wird [log4net](https://logging.apache.org/log4net/) verwendet. Eine Instanz des Loggers kann in einen Service über ein öffentliches Property injiziert werden.
 
-```
+```csharp
 public ILogger Logger { get; set; }
 ```
 

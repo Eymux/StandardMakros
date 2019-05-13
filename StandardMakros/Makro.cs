@@ -39,7 +39,6 @@ namespace StandardMakros.Components
         public void ShowHelp(string resourceName)
         {
             var assembly = Assembly.GetExecutingAssembly();
-            // var resourceName = "StandardMakros.help.help.md";
 
             using (Stream stream = assembly.GetManifestResourceStream(resourceName))
             using (StreamReader reader = new StreamReader(stream))
